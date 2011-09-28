@@ -8,7 +8,8 @@ class Isotanetto
   def initialize(texts)
     tokens_in_words_by_text = texts.map do |text|
       alphabetical_expressions = text.scan(/[a-zA-Z][a-z]*/)
-      alphabetical_expressions
+      lower_case_expressions = alphabetical_expressions.map(&:downcase)
+      lower_case_expressions
     end
     tokens = tokens_in_words_by_text.flatten(1)
     @token_frequencies = Hash[tokens.group_by{|token| token}.map{|key, array| [key, array.count]}]

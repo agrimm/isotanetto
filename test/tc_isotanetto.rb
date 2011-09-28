@@ -21,4 +21,13 @@ class TestIsotanetto < Test::Unit::TestCase
     actual_output = isotanetto.output
     assert actual_output.include?(expected_output_portion), failure_message
   end
+
+  def test_case_insensitive
+    text = "MyClass my_class"
+    expected_output_portion = "my\t2"
+    failure_message = "Not case insensitive"
+    isotanetto = Isotanetto.new([text])
+    actual_output = isotanetto.output
+    assert actual_output.include?(expected_output_portion), failure_message
+  end
 end
