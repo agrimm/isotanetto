@@ -30,4 +30,13 @@ class TestIsotanetto < Test::Unit::TestCase
     actual_output = isotanetto.output
     assert actual_output.include?(expected_output_portion), failure_message
   end
+
+  def test_dont_split_all_caps
+    text = "MY_CONSTANT"
+    expected_output_portion = "constant\t1"
+    failure_message = "Splits up all caps"
+    isotanetto = Isotanetto.new([text])
+    actual_output = isotanetto.output
+    assert actual_output.include?(expected_output_portion), failure_message
+  end
 end

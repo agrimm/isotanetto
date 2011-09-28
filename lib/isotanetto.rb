@@ -7,7 +7,7 @@ class Isotanetto
 
   def initialize(texts)
     tokens_in_words_by_text = texts.map do |text|
-      alphabetical_expressions = text.scan(/[a-zA-Z][a-z]*/)
+      alphabetical_expressions = text.scan(/[A-Z]{2,}|[a-zA-Z][a-z]*/)
       lower_case_expressions = alphabetical_expressions.map(&:downcase)
       lower_case_expressions
     end
