@@ -1,0 +1,7 @@
+$:<< File.join(File.dirname(__FILE__), "..", "lib")
+
+require "isotanetto"
+
+if File.identical?($0, __FILE__)
+  Isotanetto.analyze_files(ARGV)
+end
